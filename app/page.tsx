@@ -1,20 +1,35 @@
 "use client";
-
+import Navbar from "../components/Navbar";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center h-screen text-center px-6">
-      <h1 className="text-5xl font-bold">JEE Question Practice</h1>
-      <p className="mt-4 text-lg text-gray-600">
-        Level up your JEE preparation with interactive mock questions.
-      </p>
+    <>
+      <Navbar />
+      <main className="flex flex-col items-center justify-center h-screen text-center px-6 bg-gradient-to-br from-purple-50 to-indigo-100">
+        <motion.h1
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-6xl font-extrabold bg-gradient-to-r from-purple-600 to-indigo-600 text-transparent bg-clip-text"
+        >
+          JEE Mock Practice
+        </motion.h1>
 
-      <Link href="/dashboard">
-        <button className="mt-6 bg-purple-600 text-white px-6 py-3 rounded-lg text-xl shadow-lg hover:bg-purple-700 transition">
-          Start Practicing 🚀
-        </button>
-      </Link>
-    </main>
+        <p className="mt-4 text-xl text-gray-700 max-w-2xl">
+          Interactive JEE preparation with real-time feedback and detailed explanations.
+        </p>
+
+        <Link href="/dashboard">
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.94 }}
+            className="mt-6 bg-purple-600 text-white px-8 py-4 rounded-2xl text-2xl font-bold shadow-lg hover:bg-purple-700 transition"
+          >
+            Start Practicing 🚀
+          </motion.button>
+        </Link>
+      </main>
+    </>
   );
 }
